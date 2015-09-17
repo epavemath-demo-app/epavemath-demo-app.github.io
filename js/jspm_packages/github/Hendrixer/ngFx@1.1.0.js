@@ -1,0 +1,1 @@
+module.exports = require("github:Hendrixer/ngFx@1.1.0/dist/ngFx");

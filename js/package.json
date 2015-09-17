@@ -1,0 +1,32 @@
+{
+  "name": "demo-web-app-js-libs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "jspm": "^0.16.2"
+  },
+  "devDependencies": {
+    "jspm": "^0.16.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "jspm": {
+    "directories": {},
+    "dependencies": {
+      "Hendrixer/ngFx": "github:Hendrixer/ngFx@^1.1.0",
+      "angular": "github:angular/bower-angular@^1.4.5",
+      "angular-animate": "github:angular/bower-angular-animate@^1.4.5",
+      "angular-material": "github:angular/bower-material@^0.11.0",
+      "angular-route": "github:angular/bower-angular-route@^1.4.5"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.22",
+      "babel-runtime": "npm:babel-runtime@^5.8.20",
+      "core-js": "npm:core-js@^1.1.0"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+
+<!-- Created by Aston Hamilton.-->
+<!-- Created by Aston Hamilton.-->
+<html lang="en" ng-app="StarterApp">
+  <head>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic"/>
+    <meta name="viewport" content="initial-scale=1"/>
+  </head>
+  <body layout="column">
+    <div ng-view="" layout="row" layout-align="center center" class="full-height">
+      <md-progress-circular md-mode="indeterminate" class="md-primary"></md-progress-circular>
+    </div>
+    <!-- Angular Material Dependencies-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <script src="js/jspm_packages/system.js"></script>
+    <script src="js/config.js"></script>
+    <script>System.import('main');</script>
+  </body>
+</html>

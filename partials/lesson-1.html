@@ -1,0 +1,52 @@
+
+<!-- Created by Aston Hamilton.-->
+<!-- Created by Aston Hamilton.-->
+<div class="fill-height fill-width bg-main-menu-screen">
+  <div class="fill-height fill-width fx-zoom-right fx-speed-200">
+    <div class="bg-main-menu-screen-inner"></div>
+    <div layout="column" class="bg-main-menu-screen-inner-2">
+      <md-toolbar layout="row" class="elevation-1 margin-bottom">
+        <div class="md-toolbar-tools">
+          <md-button aria-label="Back" ng-click="onBackClicked()" class="md-icon-button">
+            <md-icon>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewbox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+              </svg>
+            </md-icon>
+          </md-button>
+          <h1 class="white-text">Multiplying Fractions</h1>
+        </div>
+      </md-toolbar>
+      <div flex="" class="embedded-lesson-container">
+        <div ng-show="!showMainLesson" ng-if="!showMainLesson" style="padding-bottom: 120px; padding-top: 20px; padding-left: 20px; overflow: auto; height: 100%">
+          <div class="row">
+            <div class="small-12 columns">
+              <p><span>In the activity that follows you will learn about adding fractions.</span>
+                <md-button ng-click="onSkipClicked()" class="md-primary">Skip Intro</md-button>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-7 columns">
+              <video id="mainFractionsVideo" width="100%" controls="controls" autoplay="" style="margin-bottom: 20px">
+                <source src="/video/Fractions in Real Life.mp4" type="video/mp4"/>
+              </video>
+            </div>
+            <div class="medium-5 columns end">
+              <div ng-show="thumbShown === 0" class="image-box fx-fade-normal fx-speed-2000"><img src="/img/fraction1.jpg" style="width: 300px; height: 300px"/>
+                <h3>Fractions are everywhere</h3>
+                <p>Fractions are all around us. We slice up a cake to share with others. Sometimes we cut up an apple to share too.</p>
+              </div>
+              <div ng-show="thumbShown === 1" class="image-box fx-fade-normal fx-speed-2000 ng-hide"><img src="/img/fraction 2.png" style="width: 300px; height: 300px"/>
+                <h3>Pizza slices are fractions</h3>
+                <p>Pizza is sliced for many persons to eat and enjoy.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <iframe ng-show="showMainLesson" ng-if="showMainLesson" src="http://tube.geogebra.org/m/B6VSp8vD" class="ng-hide"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
