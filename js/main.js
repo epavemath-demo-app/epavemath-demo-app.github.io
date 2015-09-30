@@ -47,6 +47,10 @@ app.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'partials/algebra-topic-menu.html',
     controller: 'AlgebraTopicCtrl'
   });
+  $routeProvider.when('/topic/geometry', {
+    templateUrl: 'partials/shapes-topic-menu.html',
+    controller: 'ShapesTopicCtrl'
+  });
   $routeProvider.when('/assessment', {
     templateUrl: 'partials/assessment.html',
     controller: PageController
@@ -58,6 +62,10 @@ app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/lesson-2', {
     templateUrl: 'partials/lesson-2.html',
     controller: 'AlgebraLessonCtrl'
+  });
+  $routeProvider.when('/lesson-3', {
+    templateUrl: 'partials/lesson-3.html',
+    controller: 'PiLessonCtrl'
   });
   $routeProvider.otherwise('/splash');
 }]);
@@ -94,7 +102,7 @@ app.controller('MainMenuCtrl',
         },
         {
           icon: 'compass',
-          title: 'Shapes'
+          title: 'Geometry'
         },
         {
           icon: 'ruler',
@@ -119,6 +127,11 @@ app.controller('MainMenuCtrl',
       ];
 
       $scope.onTopicClicked = function(index) {
+        if (index === 3) {
+          $location.url('/topic/geometry');
+          return;
+        }
+
         if (index === 5) {
           $location.url('/topic/fractions');
           return;
@@ -217,6 +230,39 @@ app.controller('AlgebraTopicCtrl',
       };
     }]
 );
+app.controller('ShapesTopicCtrl',
+    ['$scope', '$timeout', '$location', '$mdToast', function($scope, $timeout, $location, $mdToast) {
+      PageController.call(this, $scope, $timeout);
+
+      $scope.lessonCount = 12;
+
+      $scope.range = function(min, max) {
+        var range = [];
+        for(var i=min;i<max;i++) {
+          range.push(i);
+        }
+        return range;
+      };
+
+      $scope.onBackClicked = function(index) {
+        $location.url('/main-menu');
+      };
+
+      $scope.onLessonClicked = function(index) {
+        if ($scope.lessonCount === index) {
+          $mdToast.show(
+              $mdToast.simple()
+                  .content('This assessment is not yet ready')
+                  .position('bottom')
+                  .hideDelay(3000)
+          );
+          return;
+        }
+
+        $location.url('/lesson-3');
+      };
+    }]
+);
 app.controller('AlgebraLessonCtrl',
     ['$scope', '$timeout', '$location', '$mdToast', function($scope, $timeout, $location, $mdToast) {
       PageController.call(this, $scope, $timeout);
@@ -255,6 +301,40 @@ app.controller('FractionsLessonCtrl',
           });
         },false);
       }, 10);
+
+    }]
+);
+app.controller('PiLessonCtrl',
+    ['$scope', '$timeout', '$location', '$mdToast', function($scope, $timeout, $location, $mdToast) {
+      PageController.call(this, $scope, $timeout);
+
+
+      $scope.showMainLesson = false;
+      $scope.thumbShown = 0;
+
+      $timeout(function() {
+        $scope.thumbShown = 1;
+      }, 70000);
+
+      $timeout(function() {
+        $scope.thumbShown = 2;
+      }, 166000);
+
+      $scope.onBackClicked = function() {
+        $location.url('/topic/pi');
+      };
+
+      $scope.onSkipClicked = function() {
+        $scope.showMainLesson = true;
+      };
+
+      $timeout(function() {
+        document.getElementById('mainPiVideo').addEventListener('ended',function() {
+          $timeout(function() {
+            $scope.showMainLesson = true;
+          });
+        },false);
+      }, 100);
 
     }]
 );
